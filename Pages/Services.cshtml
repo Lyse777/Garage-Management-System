@@ -1,0 +1,85 @@
+﻿@page
+@model Garage_Management_System.Pages.ServicesModel
+@{
+    ViewData["Title"] = "Our Services";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HC GARAGE</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Garage_Management_System.styles.css" asp-append-version="true" />
+    <style>
+        .btn-primary {
+            background-color: #2a3f5f; /* Primary blue color for the button */
+            border-color: #007bff;
+            color: white;
+            padding: .375rem .75rem;
+            border-radius: 5px; /* Rounded borders for button */
+            font-size: 1rem;
+            transition: background-color .15s ease-in-out;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3; /* Darker shade on hover */
+                border-color: #0056b3;
+            }
+
+    </style>
+
+</head>
+<body>
+<div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <div class="text-center flex-grow-1">
+                <h2>Garage Services We Offer</h2>
+            </div>
+            <a asp-area="" asp-page="/Request Service" class="btn btn-primary" role="button">Request Service</a>
+        </div>
+    <h3 class="mt-4 mb-3">Preventive Maintenance Services</h3>
+    <div class="row">
+        <div class="col-md-4 service-item">
+            <img src="~/images/oil-change-icon.png" alt="Oil Change" class="service-icon">
+            <h4>Oil Changes and Filter Replacements</h4>
+            <p>Regular oil changes and filter replacements to keep your engine running smoothly and extend its lifespan.</p>
+        </div>
+        <div class="col-md-4 service-item">
+            <img src="~/images/tire-rotation-icon.png" alt="Tire Rotation" class="service-icon">
+            <h4>Tire Rotations</h4>
+            <p>Even tire wear through rotation to prolong tire life and enhance driving safety.</p>
+        </div>
+        <div class="col-md-4 service-item">
+            <img src="~/images/brake-inspection-icon.png" alt="Brake Inspection" class="service-icon">
+            <h4>Brake Inspections</h4>
+            <p>Comprehensive brake checks to ensure optimal performance and safety.</p>
+        </div>
+        <div class="col-md-4 service-item">
+            <img src="~/images/fluid-check-icon.png" alt="Fluid Check" class="service-icon">
+            <h4>Fluid Level Checks</h4>
+            <p>Regular checks and top-ups of essential fluids to keep your car's systems running efficiently.</p>
+        </div>
+    </div>
+    <h3 class="mt-4 mb-3">Repair Services</h3>
+    <div class="row">
+        <div class="col-md-4 service-item">
+            <img src="~/images/engine-repair-icon.png" alt="Engine Repair" class="service-icon">
+            <h4>Engine Repairs</h4>
+            <p>From tune-ups to overhauls, we handle a variety of engine repair needs.</p>
+        </div>
+        <div class="col-md-4 service-item">
+            <img src="~/images/transmission-repair-icon.jpg" alt="Transmission Repair" class="service-icon">
+            <h4>Transmission Repairs</h4>
+            <p>Expertise in diagnosing and fixing transmission problems to ensure smooth driving.</p>
+        </div>
+        <div class="col-md-4 service-item">
+            <img src="~/images/electrical-repair-icon.jpg" alt="Electrical Repair" class="service-icon">
+            <h4>Electrical Repairs</h4>
+            <p>Addressing electrical issues from diagnostics to comprehensive repairs.</p>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

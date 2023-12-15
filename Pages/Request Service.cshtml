@@ -1,0 +1,160 @@
+﻿@page
+@model Garage_Management_System.Pages.RequestServiceModel
+@{
+    ViewData["Title"] = "Request Service";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HC GARAGE</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Garage_Management_System.styles.css" asp-append-version="true" />
+    <style>
+        /* General container and form styling */
+        .container234 {
+            max-width: 650px; /* Adjust the width of the container */
+            margin: auto;
+        }
+
+        h2.text-center {
+            color: black; /* Color for the heading */
+        }
+
+        /* Style for form labels */
+        .form-group label {
+            font-weight: bold;
+            color: black;
+        }
+
+        /* Style for form controls */
+        .form-control {
+            border-radius: 5px; /* Slightly rounded borders for input fields */
+            border: 1px solid #aaa; /* Light gray border */
+            padding: .375rem .75rem;
+        }
+
+        /* Style for the request button */
+        .btn-primary {
+            background-color:blue; /* Primary blue color for the button */
+            border-color: #007bff;
+            color: white;
+            padding: .375rem .75rem;
+            border-radius: 5px; /* Rounded borders for button */
+            font-size: 1rem;
+            transition: background-color .15s ease-in-out;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3; /* Darker shade on hover */
+                border-color: #0056b3;
+            }
+    </style>
+</head>
+
+<body>
+   <div class="container234">
+        <div class="container mt-4">
+            <h2 class="text-center mb-5">Request Service</h2>
+            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+            {
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>@Model.ErrorMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>@Model.SuccessMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+            <form method="post" autocomplete="off">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row mb-3">
+                    <label asp-for="RequestServiceInfo.Names" class="col-sm-3 col-form-label"></label>
+                    <div class="col-sm-6">
+                        <input asp-for="RequestServiceInfo.Names" class="form-control" />
+                        <span asp-validation-for="RequestServiceInfo.Names" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="RequestServiceInfo.Service_Id" class="col-sm-3 col-form-label">Select Service</label>
+                    <div class="col-sm-6">
+                        @if (Model.ServicesList != null && Model.ServicesList.Any())
+                        {
+                            <select asp-for="RequestServiceInfo.Service_Id" class="form-select" id="serviceDropdown">
+                                <option value="">Select service</option>
+                                @foreach (var service in Model.ServicesList)
+                                {
+                                    <option value="@service.Service_Id" data-price="@service.Price">@service.Service_Name</option>
+                                }
+                            </select>
+                        }
+                        else
+                        {
+                            <p>No services available.</p>
+                        }
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="RequestServiceInfo.Price" class="col-sm-3 col-form-label"></label>
+                    <div class="col-sm-6">
+                        <input asp-for="RequestServiceInfo.Price" class="form-control" id="priceTextField" readonly />
+                        <span asp-validation-for="RequestServiceInfo.Price" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label asp-for="RequestServiceInfo.Location" class="col-sm-3 col-form-label">Location</label>
+                    <div class="col-sm-6">
+                        <input asp-for="RequestServiceInfo.Location" class="form-control" />
+                        <span asp-validation-for="RequestServiceInfo.Location" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="RequestServiceInfo.Phone_Number" class="col-sm-3 col-form-label">Phone number</label>
+                    <div class="col-sm-6">
+                        <input asp-for="RequestServiceInfo.Phone_Number" class="form-control" />
+                        <span asp-validation-for="RequestServiceInfo.Phone_Number" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label asp-for="RequestServiceInfo.Email" class="col-sm-3 col-form-label">Email</label>
+                    <div class="col-sm-6">
+                        <input asp-for="RequestServiceInfo.Email" class="form-control" />
+                        <span asp-validation-for="RequestServiceInfo.Email" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-sm-9 offset-sm-3">
+                        <button type="submit" class="btn btn-primary">Request</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    @section Scripts {
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var serviceDropdown = document.getElementById('serviceDropdown');
+                var priceTextField = document.getElementById('priceTextField');
+                serviceDropdown.addEventListener('change', function () {
+                    var selectedOption = serviceDropdown.options[serviceDropdown.selectedIndex];
+                    priceTextField.value = selectedOption.getAttribute('data-price') || '0.00';
+                });
+            });
+        </script>
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+
+</body>
+</html>

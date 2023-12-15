@@ -1,0 +1,111 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HC GARAGE</title>
+    <link rel="icon" href="~/images/logo.png"/>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="path_to_bootstrap_js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="~/Garage_Management_System.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var navbarToggler = document.querySelector('.navbar-toggler');
+            navbarToggler.addEventListener('click', function () {
+                this.classList.toggle('collapsed');
+            });
+        });
+    </script>
+
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #2a3f5f;">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <img src="~/images/logo2.png" alt="HC GARAGE Logo" style=" margin-left:-70px; margin-top: -1px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/Services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/Gallery">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/About Us">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/Contact Us">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <a class="nlogo" asp-area="" asp-page="/Login">
+                <img src="~/images/log1.png" alt="Login" style=" margin-right:-70px; margin-top: -1px;height: 50px; width: 50px;">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Contact Details -->
+                <div class="col-md-6">
+                    <div id="contact-details" style="color:white;">
+                        <p style ="margin-top:-50px;margin-left: -15%;">
+                            <strong>Phone:</strong> +250732048526</p>
+                    <p style="margin-top:-30px;margin-left: -15%;"><strong>Email:</strong> hcgarage777@gmail.com</p>
+                        <p style="margin-top:-30px;margin-left: -15%;"><strong>Address:</strong> Rwanda, Kigali, Kicukiro, Kagarama</p>
+                        <p style="margin-top:-30px;margin-left: -15%;"><strong>Connect with us:</strong></p>
+                        <div class="social-media-icons">
+                            <a href="https://www.facebook.com/p/HC-Garage-100066805386911/" class="facebook-icon"><i class="fab fa-facebook-square"></i></a>
+                            <a href="https://twitter.com/"><img src="images/x1.png" height="27" width="28" style="border-radius:3px; margin-top:-8px;" alt="Twitter"></a>
+                            <a href="https://www.instagram.com/hcgarage/" class="instagram-icon"><i class="fab fa-instagram-square"></i></a>
+                        </div>
+                </div>
+                </div>
+                <!-- Embedded Map -->
+                <div class="col-md-6">
+                    <div id="map-container" class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63797.90654460354!2d30.00927153124999!3d-2.0076683999999836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca9f7eaa1a187%3A0x112e08996aa303b!2sH%20C%20garage!5e0!3m2!1sen!2srw!4v1700601712479!5m2!1sen!2srw" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright Notice -->
+            <div class="row">
+                <div class="col-12 text-center" style=" color:white; font-weight:bold;">
+                    &copy; 2023 - HC GARAGE
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

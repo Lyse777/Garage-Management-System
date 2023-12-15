@@ -1,0 +1,54 @@
+﻿@page
+@model Garage_Management_System.Pages.About_UsModel
+@{
+    ViewData["Title"] = "About Us";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HC GARAGE</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Garage_Management_System.styles.css" asp-append-version="true" />
+</head>
+<body>
+<div class="container mt-4">
+    <h2 class="text-center mb-5">About Us</h2>
+    <div class="row mb-5">
+        <div class="col-md-6">
+    <h3>Our Story</h3>
+            <p>Founded in 2002, HC Garage began as a small, family-run garage driven by a passion for cars and a commitment to service excellence. Over the years, we encountered firsthand the complexities and challenges of garage management – from juggling appointments to tracking inventory and maintaining customer relationships. Fueled by these experiences and a desire to redefine automotive service standards, we developed our Garage Management System.</p>
+            <p>Our journey has been one of constant innovation and improvement. We've embraced technology, not just to simplify operations, but to elevate the entire automotive service experience. Today, our system is at the heart of everything we do, enabling us to deliver unparalleled service efficiency and accuracy, and empowering other garages to do the same.</p>
+        </div>
+
+        <div class="col-md-6">
+            <h3>Our Mission</h3>
+            <p>At HC Garage, our mission is twofold: to revolutionize the automotive service industry and to ensure every vehicle owner receives the best care for their car. We believe in leveraging technology to enhance efficiency and accuracy, enabling garages everywhere to focus on what they do best – providing top-notch automotive care.</p>
+            <p>We're committed to continuous innovation, customer satisfaction, and upholding the highest standards of service. Our goal is to be more than just a garage management solution; we aim to be a catalyst for positive change in the automotive service industry.</p>
+        </div>
+
+    </div>
+
+    <h3 class="text-center mb-4">Meet Our Team</h3>
+    <div class="row">
+        <div class="col-md-4 mb-4 text-center">
+                <img src="~/images/Image 2.jpg" class="img-fluid rounded-circle mb-3" alt="NIYONKURU Regis">
+            <h4>NIYONKURU Regis</h4>
+            <p>CEO ENGINEERING</p>
+        </div>
+        <div class="col-md-4 mb-4 text-center">
+                <img src="~/images/Image 1.jpg" class="img-fluid rounded-circle mb-3" alt="EPONGO Joseph">
+            <h4>EPONGO Joseph</h4>
+            <p>VICE CEO MANAGEMENT</p>
+        </div>
+        <div class="col-md-4 mb-4 text-center">
+                <img src="~/images/Image 33.jpg" class="img-fluid rounded-circle mb-3" alt="SHEMA Roger">
+            <h4>SHEMA Roger</h4>
+            <p>CEO MANAGEMENT</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

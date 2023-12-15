@@ -1,0 +1,151 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Garage_Management_System
+build_property.RootNamespace = Garage_Management_System
+build_property.ProjectDir = C:\Users\Adelain\Desktop\LYSE\DOT NET\.NET\Garage_Management_System\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Adelain\Desktop\LYSE\DOT NET\.NET\Garage_Management_System
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/About Us.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXQgVXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Admin/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Admin/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Admin/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Contact Us.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGFjdCBVcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Gallery.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2FsbGVyeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Manager/DailyReports/DayReports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlclxEYWlseVJlcG9ydHNcRGF5UmVwb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Manager/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Manager/InventoryManage/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlclxJbnZlbnRvcnlNYW5hZ2VcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Manager/InventoryManage/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlclxJbnZlbnRvcnlNYW5hZ2VcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Manager/InventoryManage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlclxJbnZlbnRvcnlNYW5hZ2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Manager/InventoryManage/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlclxJbnZlbnRvcnlNYW5hZ2VcVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Manager/LaboursManage/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlclxMYWJvdXJzTWFuYWdlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Manager/LaboursManage/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlclxMYWJvdXJzTWFuYWdlXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Manager/LaboursManage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlclxMYWJvdXJzTWFuYWdlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Manager/LaboursManage/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlclxMYWJvdXJzTWFuYWdlXFVwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Manager/RequestServiceManage/ManageRequestService.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlclxSZXF1ZXN0U2VydmljZU1hbmFnZVxNYW5hZ2VSZXF1ZXN0U2VydmljZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Manager/RequestServiceManage/SendEmailForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlclxSZXF1ZXN0U2VydmljZU1hbmFnZVxTZW5kRW1haWxGb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Manager/SellingServiceManage/SellingService.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlclxTZWxsaW5nU2VydmljZU1hbmFnZVxTZWxsaW5nU2VydmljZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Manager/ServicesManage/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlclxTZXJ2aWNlc01hbmFnZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Manager/ServicesManage/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlclxTZXJ2aWNlc01hbmFnZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Manager/ServicesManage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlclxTZXJ2aWNlc01hbmFnZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Manager/ServicesManage/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFuYWdlclxTZXJ2aWNlc01hbmFnZVxVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/MessageSuccess.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVzc2FnZVN1Y2Nlc3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Request Service.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVxdWVzdCBTZXJ2aWNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Services.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VydmljZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Adelain/Desktop/LYSE/DOT NET/.NET/Garage_Management_System/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-gwp7swcnkc

@@ -1,0 +1,167 @@
+﻿@page
+@model Garage_Management_System.Pages.Manager.ManageRequestServiceModel
+@{
+    ViewData["Title"] = "Manage Request Service";
+}
+
+@{
+    Layout = null;
+}
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HC GARAGE</title>
+    <link rel="icon" href="~/images/logo.png" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+
+
+<style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: darkslateblue;
+            color: white;
+            padding: 10px 20px;
+            border-bottom: 5px solid #007bff;
+            display: flex;
+            justify-content: center;
+            position: relative; /* Added for absolute positioning of logout link */
+        }
+
+            header::after { /* Used for centering the title with a flex item on the left */
+                content: '';
+                margin-right: -50px; /* Adjust this value based on your logout link width */
+            }
+
+            header a {
+                position: absolute;
+                right: 20px; /* Adjust this value as needed */
+                top: 50%;
+                transform: translateY(-50%);
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                header a:hover {
+                    color: gray; /* Text color on hover */
+                }
+
+        footer {
+            background-color: darkslateblue;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            border-top: 5px solid #007bff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    .container {
+        padding: 20px;
+        min-height: 80vh; /* Adjust height to make sure footer stays at bottom */
+        background-color: white;
+    }
+
+    h2 {
+        color: #2a3f5f;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* Back link style */
+    div a {
+        color: #2a3f5f;
+        text-decoration: none;
+        margin-top: 20px;
+        display: inline-block;
+    }
+
+        div a:hover {
+            text-decoration: underline;
+            color: black;
+        }
+
+
+
+</style>
+</head>
+
+<body>
+
+    <header>
+        <span>Manager Dashboard</span>
+        <a asp-page="/Login">Logout</a>
+    </header>
+    <div class="container">
+    <h2>Manage Service Requests</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Service ID</th>
+                <th>Location</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Price(Rwf)</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var request in Model.RequestServices)
+            {
+                <tr>
+                    <td>@request.Id</td>
+                    <td>@request.Names</td>
+                    <td>@request.Service_Id</td>
+                    <td>@request.Location</td>
+                    <td>@request.Phone_Number</td>
+                    <td>@request.Email</td>
+                    <td>@request.Price</td>
+                    <td>
+                        <form method="post">
+                            <input type="hidden" name="Id" value="@request.Id" />
+                            <select name="Status" onchange="this.form.submit()">
+                                <option value="Pending" selected="@IsSelected(request.Status, "Pending")">Pending</option>
+                                <option value="Accepted" selected="@IsSelected(request.Status, "Accepted")">Accepted</option>
+                                <option value="Denied" selected="@IsSelected(request.Status, "Denied")">Denied</option>
+                            </select>
+
+                            <button type="submit" formaction="/Manager/RequestServiceManage/ManageRequestService?handler=Email" name="Id" value="@request.Id">Send Email</button>
+                           
+
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @functions {
+        private bool IsSelected(string currentStatus, string statusValue)
+        {
+            return currentStatus == statusValue;
+        }
+    }
+    <div>
+        <a asp-page="/Manager/Index">Back to Management </a>
+        </div>
+    </div>
+    <br />
+    <br />
+    <footer>
+        &copy;HC GARAGE 2023
+    </footer>
+</body>
+</html>

@@ -1,0 +1,190 @@
+﻿@page
+@model Garage_Management_System.Pages.Manager.ServicesManage.UpdateModel
+@{
+    ViewData["Title"] = "Update Service";
+}
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HC GARAGE</title>
+    <link rel="icon" href="~/images/logo.png" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: darkslateblue;
+            color: white;
+            padding: 10px 20px;
+            border-bottom: 5px solid #007bff;
+            display: flex;
+            justify-content: center;
+            position: relative; /* Added for absolute positioning of logout link */
+        }
+
+            header::after { /* Used for centering the title with a flex item on the left */
+                content: '';
+                margin-right: -50px; /* Adjust this value based on your logout link width */
+            }
+
+            header a {
+                position: absolute;
+                right: 20px; /* Adjust this value as needed */
+                top: 50%;
+                transform: translateY(-50%);
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                header a:hover {
+                    color: gray; /* Text color on hover */
+                }
+
+        footer {
+            background-color: darkslateblue;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            border-top: 5px solid #007bff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+
+        /* Back link style */
+        div a {
+            color: #2a3f5f;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+            div a:hover {
+                text-decoration: underline;
+                color: black;
+            }
+
+        .container {
+            padding: 20px;
+            min-height: 80vh; /* Adjust height to make sure footer stays at bottom */
+        }
+
+        h2 {
+            color: #2a3f5f;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label.control-label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+    }
+
+    .text-danger {
+        color: #dc3545;
+    }
+
+    .btn-primary {
+        background-color: #2a3f5f;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+
+    a {
+        color: #2a3f5f;
+        text-decoration: none;
+        margin-top: 20px;
+        display: inline-block;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+</style>
+</head>
+<body>
+
+    <header>
+        <span>Manager Dashboard</span>
+        <a asp-page="/Login">Logout</a>
+    </header>
+
+    <div class="container">
+<h2>Update Service</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Service.Service_Id" />
+    <div class="form-group">
+        <label asp-for="Service.Service_Name" class="control-label"></label>
+        <input asp-for="Service.Service_Name" class="form-control" />
+        <span asp-validation-for="Service.Service_Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Service.Category" class="control-label"></label>
+        <input asp-for="Service.Category" class="form-control" />
+        <span asp-validation-for="Service.Category" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Service.Price" class="control-label"></label>
+        <input asp-for="Service.Price" class="form-control" />
+        <span asp-validation-for="Service.Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Update" class="btn btn-primary" />
+    </div>
+</form>
+        <div>
+            <a asp-page="./Index">Back to Services Manage</a>
+
+
+        </div>
+
+    </div>
+    <br />
+    <br />
+    <footer>
+        &copy;HC GARAGE 2023
+    </footer>
+</body>
+</html>

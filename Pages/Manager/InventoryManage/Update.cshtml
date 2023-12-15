@@ -1,0 +1,167 @@
+﻿@page
+@model Garage_Management_System.Pages.Manager.InventoryManage.UpdateModel
+@{
+    ViewData["Title"] = "Update Inventory Item";
+}
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HC GARAGE</title>
+    <link rel="icon" href="~/images/logo.png" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: darkslateblue;
+            color: white;
+            padding: 10px 20px;
+            border-bottom: 5px solid #007bff;
+            display: flex;
+            justify-content: center;
+            position: relative; /* Added for absolute positioning of logout link */
+        }
+
+            header::after { /* Used for centering the title with a flex item on the left */
+                content: '';
+                margin-right: -50px; /* Adjust this value based on your logout link width */
+            }
+
+            header a {
+                position: absolute;
+                right: 20px; /* Adjust this value as needed */
+                top: 50%;
+                transform: translateY(-50%);
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                header a:hover {
+                    color: gray; /* Text color on hover */
+                }
+
+        footer {
+            background-color: darkslateblue;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            border-top: 5px solid #007bff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .container {
+            padding: 20px;
+            min-height: 80vh; /* Adjust height to make sure footer stays at bottom */
+        }
+
+        h2 {
+            color: #2a3f5f;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    .inventory-form .form-group {
+        margin-bottom: 15px;
+    }
+
+    .inventory-form label {
+        font-weight: bold;
+    }
+
+    .inventory-form input, .inventory-form select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+    }
+
+    .inventory-form .btn-primary {
+        background-color: #2a3f5f;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+
+
+
+        /* Back link style */
+        div a {
+            color: #2a3f5f;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+            div a:hover {
+                text-decoration: underline;
+                color: black;
+            }
+</style>
+</head>
+<body>
+    <header>
+        <span>Manager Dashboard</span>
+        <a asp-page="/Login">Logout</a>
+    </header>
+
+    <div class="container">
+
+<h2>Update Inventory Item</h2>
+
+<form method="post" class="inventory-form">
+    <input type="hidden" asp-for="Inventory.InventoryId" />
+    <div class="form-group">
+        <label asp-for="Inventory.ToolId" class="control-label">Tool ID</label>
+        <input asp-for="Inventory.ToolId" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Inventory.ToolName" class="control-label">Tool Name</label>
+        <input asp-for="Inventory.ToolName" class="form-control" />
+        <span asp-validation-for="Inventory.ToolName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Inventory.Price" class="control-label">Price</label>
+        <input asp-for="Inventory.Price" class="form-control" />
+        <span asp-validation-for="Inventory.Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Inventory.Quantity" class="control-label">Quantity</label>
+        <input asp-for="Inventory.Quantity" class="form-control" />
+        <span asp-validation-for="Inventory.Quantity" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+        <div>
+            <a asp-page="./Index">Back to Inventory</a>
+        </div>
+    
+    </div>
+    <br />
+    <br />
+    <footer>
+        &copy;HC GARAGE 2023
+    </footer>
+</body>
+</html>

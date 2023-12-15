@@ -1,0 +1,181 @@
+﻿@page
+@model Garage_Management_System.Pages.Manager.DailyReports.DayReportsModel
+@{
+    ViewData["Title"] = "Day Report";
+}
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HC GARAGE</title>
+    <link rel="icon" href="~/images/logo.png" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<style>
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: darkslateblue;
+            color: white;
+            padding: 10px 20px;
+            border-bottom: 5px solid #007bff;
+            display: flex;
+            justify-content: center;
+            position: relative; /* Added for absolute positioning of logout link */
+        }
+
+            header::after { /* Used for centering the title with a flex item on the left */
+                content: '';
+                margin-right: -50px; /* Adjust this value based on your logout link width */
+            }
+
+            header a {
+                position: absolute;
+                right: 20px; /* Adjust this value as needed */
+                top: 50%;
+                transform: translateY(-50%);
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                header a:hover {
+                    color: gray; /* Text color on hover */
+                }
+
+        footer {
+            background-color: darkslateblue;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            border-top: 5px solid #007bff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Back link style */
+        div a {
+            color: #2a3f5f;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+            div a:hover {
+                text-decoration: underline;
+                color: black;
+            }
+    body {
+        background-color: #f8f9fa; /* Light gray background */
+    }
+
+    .container {
+        max-width: 75%;
+    }
+
+    .report-header {
+        background-color: #007bff; /* Blue header background color */
+        color: #fff; /* White text color */
+        padding: 1rem; /* Padding for the header */
+        text-align: center; /* Center-align text */
+        margin-bottom: 2rem; /* Bottom margin for spacing */
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-control {
+        background-color: #ececec;
+    }
+
+    .btn-primary {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+    .card {
+        background-color: #fff;
+        margin-top: 1.5rem;
+        border: 1px solid #ddd; /* Add a border around the card */
+        border-radius: 5px; /* Rounded corners for the card */
+    }
+
+    .card-body {
+        padding: 1.5rem; /* Padding for the card body */
+    }
+
+    .summary-label {
+        font-weight: bold;
+    }
+
+    .summary-value {
+        color: #007bff; /* Blue color for summary values */
+    }
+
+    .p {
+        font-size: large;
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <span>Manager Dashboard</span>
+        <a asp-page="/Login">Logout</a>
+    </header>
+
+<div class="container mt-4">
+    <div class="report-header">
+        <h1>Day Report</h1>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.errorMessage))
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>@Model.errorMessage</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <form method="get" class="mb-3">
+        <div class="form-group">
+            <label for="selectedDate" class="form-label">Select Date:</label>
+            <input type="date" id="selectedDate" name="selectedDate" class="form-control" value="@Model.SelectedDate.ToString("yyyy-MM-dd")">
+        </div>
+        <button type="submit" class="btn btn-primary">Filter</button>
+    </form>
+
+    <div class="card">
+        <div class="card-body">
+            @if (Model.dataAccess != null)
+            {
+
+                <p class="card-text"><span class="summary-label">Number of Vehicles:</span> <span class="summary-value">@Model.counter</span></p>
+                <p class="card-text"><span class="summary-label">Total Amount from Tools:</span> <span class="summary-value">@Model.dataAccess.TotalAmount Rwf</span></p>
+                <p class="card-text"><span class="summary-label">Service Charge Sum:</span> <span class="summary-value">@Model.dataAccess.ServiceCharge Rwf</span></p>
+                <p class="card-text"><span class="summary-label">Total Payment Sum:</span> <span class="summary-value">@Model.dataAccess.TotalPayment Rwf</span></p>
+            }
+        </div>
+    </div>
+        <div>
+            <a asp-page="/Manager/Index">Back to Management </a>
+        </div>
+</div>
+    <footer>
+        &copy;HC GARAGE 2023
+    </footer>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/HCGARAGE/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsGarage_Management_Syste_ACE73FCCC0",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/garage-management-systemdbserver/databases/HC_Garage_Db",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:Garage_Management_SystemContext"
+    }
+  }
+}

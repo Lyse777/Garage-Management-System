@@ -1,0 +1,223 @@
+﻿@page
+@model Garage_Management_System.Pages.Admin.CreateModel
+@{
+    ViewData["Title"] = "Create New User";
+}
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HC GARAGE</title>
+    <link rel="icon" href="~/images/logo.png" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #2a3f5f;
+            color: white;
+            padding: 10px 20px;
+            border-bottom: 5px solid #007bff;
+            display: flex;
+            justify-content: center;
+            position: relative; /* Added for absolute positioning of logout link */
+        }
+
+            header::after { /* Used for centering the title with a flex item on the left */
+                content: '';
+                margin-right: -50px; /* Adjust this value based on your logout link width */
+            }
+
+            header a {
+                position: absolute;
+                right: 20px; /* Adjust this value as needed */
+                top: 50%;
+                transform: translateY(-50%);
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                header a:hover {
+                    color: gray; /* Text color on hover */
+                }
+
+        footer {
+            background-color: #2a3f5f;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            border-top: 5px solid #007bff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .container {
+            padding: 20px;
+            min-height: 80vh; /* Adjust height to make sure footer stays at bottom */
+        }
+
+        h2 {
+            color: #2a3f5f;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .create-form-container {
+            display: flex;
+            justify-content: center; /* Centers content horizontally */
+            align-items: center; /* Centers content vertically */
+            min-height: 80vh; /* Adjust the height as necessary */
+        }
+
+        /* Form styling */
+        .create-form {
+            width: 100%; /* Adjust the width as necessary */
+            max-width: 500px; /* Adjust the maximum width as necessary */
+            padding: 20px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow to the form */
+        }
+
+        /* General styling for form elements */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label.control-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .text-danger {
+            color: #dc3545;
+            font-size: 14px;
+        }
+
+        /* Submit button styling */
+        .btn-primary {
+            background-color: #2a3f5f;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                color: white;
+            }
+
+        /* Back link style */
+        div a {
+            color: #2a3f5f;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+            div a:hover {
+                text-decoration: underline;
+                color: black;
+            }
+
+      
+
+    </style>
+</head>
+<body>
+    <header>
+        <span>Admin Dashboard</span>
+        <a asp-page="/Login">Logout</a>
+
+    </header>
+
+    <div class="container">
+<h2>Create New User</h2>
+
+    <div class="create-form-container">
+        <form class="create-form" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="User.Names" class="control-label"></label>
+        <input asp-for="User.Names" class="form-control" />
+        <span asp-validation-for="User.Names" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="User.Gender" class="control-label"></label>
+        <select asp-for="User.Gender" class="form-control">
+            <option value="">-- Select Gender --</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <span asp-validation-for="User.Gender" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="User.Location" class="control-label"></label>
+        <input asp-for="User.Location" class="form-control" />
+        <span asp-validation-for="User.Location" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="User.Email" class="control-label"></label>
+        <input asp-for="User.Email" class="form-control" />
+        <span asp-validation-for="User.Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="User.Password" class="control-label"></label>
+        <input asp-for="User.Password" class="form-control" type="password" />
+        <span asp-validation-for="User.Password" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="User.RoleName" class="control-label">Role</label>
+                <select asp-for="User.RoleName" class="form-control">
+                    <option value="">-- Select Role --</option>
+                    <option value="Manager">Manager</option>
+                    <option value="Admin">Admin</option>
+                </select>
+        <span asp-validation-for="User.RoleName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+</div>
+<div>
+    <a asp-page="./Index">Back to User Management</a>
+            <br /> <br /> <br />
+
+</div>
+
+    </div>
+    <footer>
+        &copy;HC GARAGE 2023
+    </footer>
+</body>
+</html>

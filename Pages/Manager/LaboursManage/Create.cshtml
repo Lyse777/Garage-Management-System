@@ -1,0 +1,176 @@
+﻿@page
+@model Garage_Management_System.Pages.Manager.LaboursManage.CreateModel
+@{
+    ViewData["Title"] = "Create Labour";
+}
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HC GARAGE</title>
+    <link rel="icon" href="~/images/logo.png" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+  
+
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: darkslateblue;
+            color: white;
+            padding: 10px 20px;
+            border-bottom: 5px solid #007bff;
+            display: flex;
+            justify-content: center;
+            position: relative; /* Added for absolute positioning of logout link */
+        }
+
+            header::after { /* Used for centering the title with a flex item on the left */
+                content: '';
+                margin-right: -50px; /* Adjust this value based on your logout link width */
+            }
+
+            header a {
+                position: absolute;
+                right: 20px; /* Adjust this value as needed */
+                top: 50%;
+                transform: translateY(-50%);
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                header a:hover {
+                    color: gray; /* Text color on hover */
+                }
+
+        footer {
+            background-color: darkslateblue;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            border-top: 5px solid #007bff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .container {
+            padding: 20px;
+            min-height: 80vh; /* Adjust height to make sure footer stays at bottom */
+        }
+
+        h2 {
+            color: #2a3f5f;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .create-form {
+            max-width: 600px;
+            margin: auto;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Shadow effect */
+            border-radius: 5px; /* Rounded corners */
+            background-color: white;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            border-radius: 4px;
+            border: 1px solid #ced4da;
+        }
+
+        .btn-primary {
+            background-color: blue;
+            border-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #0056b3;
+            }
+
+        /* Back link style */
+        div a {
+            color: #2a3f5f;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+            div a:hover {
+                text-decoration: underline;
+                color: black;
+            }
+
+    </style>
+</head>
+<body>
+    <header>
+        <span>Manager Dashboard</span>
+        <a asp-page="/Login">Logout</a>
+    </header>
+
+    <div class="container">
+    <div class="create-form">
+        <h2>Create New Labour</h2>
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Labour.LabourName">Labour Name</label>
+                <input asp-for="Labour.LabourName" class="form-control" />
+                <span asp-validation-for="Labour.LabourName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Labour.Gender">Gender</label>
+                <input asp-for="Labour.Gender" class="form-control" />
+                <span asp-validation-for="Labour.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Labour.PhoneNumber">Phone Number</label>
+                <input asp-for="Labour.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Labour.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Labour.Location">Location</label>
+                <input asp-for="Labour.Location" class="form-control" />
+                <span asp-validation-for="Labour.Location" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+
+            <div>
+                <a asp-page="/Manager/LaboursManage/Index">Back to Labour Manage </a>
+            </div>
+    </div>
+    </div>
+    <br />
+    <br />
+    <footer>
+        &copy;HC GARAGE 2023
+    </footer>
+</body>
+</html>

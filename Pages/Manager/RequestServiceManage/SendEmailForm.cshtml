@@ -1,0 +1,187 @@
+﻿@page "{requestId:int}"
+@model SendEmailFormModel
+@{
+    ViewData["Title"] = "Sending An Email";
+}
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HC GARAGE</title>
+    <link rel="icon" href="~/images/logo.png" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+<style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: darkslateblue;
+            color: white;
+            padding: 10px 20px;
+            border-bottom: 5px solid #007bff;
+            display: flex;
+            justify-content: center;
+            position: relative; /* Added for absolute positioning of logout link */
+        }
+
+            header::after { /* Used for centering the title with a flex item on the left */
+                content: '';
+                margin-right: -50px; /* Adjust this value based on your logout link width */
+            }
+
+            header a {
+                position: absolute;
+                right: 20px; /* Adjust this value as needed */
+                top: 50%;
+                transform: translateY(-50%);
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                header a:hover {
+                    color: gray; /* Text color on hover */
+                }
+
+        footer {
+            background-color: darkslateblue;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            border-top: 5px solid #007bff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 50%; /* Adjust as needed */
+            max-width: 500px; /* Adjust as needed */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+
+    
+
+    h2 {
+        color: #2a3f5f;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* Back link style */
+    div a {
+        color: #2a3f5f;
+        text-decoration: none;
+        margin-top: 20px;
+        display: inline-block;
+    }
+
+        div a:hover {
+            text-decoration: underline;
+            color: black;
+        }
+
+</style>
+</head>
+
+<body>
+
+    <header>
+        <span>Manager Dashboard</span>
+        <a asp-page="/Login">Logout</a>
+    </header>
+    <br /><br />
+    <div class="container">
+
+<h2>Send Email</h2>
+<form method="post">
+    <!-- Assuming the email is related to a service request -->
+    <input type="hidden" asp-for="ServiceRequestId" />
+    <div class="form-group">
+        <label asp-for="ToEmail">To</label>
+        <input asp-for="ToEmail" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Subject">Subject</label>
+        <input asp-for="Subject" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Body">Body</label>
+        <textarea asp-for="Body" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Send Email</button>
+</form>
+
+        <script>
+            $(document).ready(function () {
+                // Check if the email was sent
+                var emailSent = '@TempData["EmailSent"]';
+                if (emailSent === 'True') {
+                    alert("Email is sent");
+
+
+                // Redirect after the alert
+                window.location.href = '/Manager/RequestServiceManage/ManageRequestService';
+                }
+            });
+        </script>
+        
+        <div>
+            <a asp-page="/Manager/RequestServiceManage/ManageRequestService">Back to Request Service Manage </a>
+        </div>
+    </div>
+    <br />
+    <br />
+    <footer>
+        &copy;HC GARAGE 2023
+    </footer>
+</body>
+</html>

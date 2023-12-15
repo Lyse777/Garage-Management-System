@@ -1,0 +1,105 @@
+﻿@page
+@model Garage_Management_System.Pages.Contact_UsModel
+@{
+    ViewData["Title"] = "Contact Us";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HC GARAGE</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Garage_Management_System.styles.css" asp-append-version="true" />
+    <style>
+ 
+
+/* General container and form styling */
+.container23 {
+    max-width: 600px; /* Adjust the width of the container */
+    margin: auto;
+}
+
+h2.text-center {
+    color: black; /* Color for the heading */
+}
+
+/* Style for form labels */
+.form-group label {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Style for form controls */
+.form-control {
+    border-radius: 5px; /* Rounded borders for form inputs */
+    border: 1px solid #ced4da;
+    padding: .375rem .75rem;
+    width: 200%;
+}
+
+/* Style for the request button */
+.btn-primary {
+            background-color: #2a3f5f; /* Primary blue color for the button */
+    border-color: #007bff;
+    color: white;
+    padding: .375rem .75rem;
+    border-radius: 5px; /* Rounded borders for button */
+    font-size: 1rem;
+    transition: background-color .15s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    border-color: #0056b3;
+}
+
+</style>
+</head>
+<body>
+    <div class="container23">
+    <div class="container mt-4">
+        <h2 class="text-center mb-5">Contact Us</h2>
+        <div class="row mb-5">
+            <div class="col-md-6">
+                <form method="post" autocomplete="off">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="ContactForm.Names">Name</label>
+                        <input asp-for="ContactForm.Names" class="form-control">
+                        <span asp-validation-for="ContactForm.Names" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="ContactForm.Phone_Number">Phone Number</label>
+                        <input asp-for="ContactForm.Phone_Number" class="form-control">
+                        <span asp-validation-for="ContactForm.Phone_Number" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="ContactForm.Email">Email</label>
+                        <input asp-for="ContactForm.Email" class="form-control">
+                        <span asp-validation-for="ContactForm.Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="ContactForm.Message">Message</label>
+                        <textarea asp-for="ContactForm.Message" class="form-control" rows="3"></textarea>
+                        <span asp-validation-for="ContactForm.Message" class="text-danger"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+</body>
+</html>

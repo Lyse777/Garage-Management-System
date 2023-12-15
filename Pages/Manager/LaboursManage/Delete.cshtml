@@ -1,0 +1,159 @@
+﻿@page
+@model Garage_Management_System.Pages.Manager.LaboursManage.DeleteModel
+@{
+    ViewData["Title"] = "Delete Labour";
+}
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HC GARAGE</title>
+    <link rel="icon" href="~/images/logo.png" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: darkslateblue;
+            color: white;
+            padding: 10px 20px;
+            border-bottom: 5px solid #007bff;
+            display: flex;
+            justify-content: center;
+            position: relative; /* Added for absolute positioning of logout link */
+        }
+
+            header::after { /* Used for centering the title with a flex item on the left */
+                content: '';
+                margin-right: -50px; /* Adjust this value based on your logout link width */
+            }
+
+            header a {
+                position: absolute;
+                right: 20px; /* Adjust this value as needed */
+                top: 50%;
+                transform: translateY(-50%);
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                header a:hover {
+                    color: gray; /* Text color on hover */
+                }
+
+        footer {
+            background-color: darkslateblue;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            border-top: 5px solid #007bff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .container {
+            padding: 20px;
+            min-height: 80vh; /* Adjust height to make sure footer stays at bottom */
+        }
+
+        h2 {
+            color: #2a3f5f;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+       
+
+        .delete-form {
+            max-width: 600px;
+            margin: auto;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            .btn-danger:hover {
+                background-color: #c82333;
+                border-color: #bd2130;
+            }
+
+        .btn-secondary {
+            margin-left: 10px;
+        }
+
+        /* Back link style */
+        div a {
+            color: #2a3f5f;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+            div a:hover {
+                text-decoration: underline;
+                color: black;
+            }
+
+    </style>
+</head>
+<body>
+    <header>
+        <span>Manager Dashboard</span>
+        <a asp-page="/Login">Logout</a>
+    </header>
+
+    <div class="container">
+    <div class="delete-form">
+        <br /></br>
+        <h2>Delete Labour</h2>
+        <form method="post">
+            <input type="hidden" asp-for="Labour.LabourId" />
+            <div class="form-group">
+                <label>Are you sure you want to delete this labour?</label>
+                <div>
+                    <strong>Name:</strong> @Model.Labour.LabourName
+                </div>
+                <div>
+                    <strong>Location:</strong> @Model.Labour.Location
+                </div>
+            </div>
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
+        </form>
+            <div>
+                <a asp-page="/Manager/LaboursManage/Index">Back to Labour Manage </a>
+            </div>
+    </div>
+    </div>
+   
+    <footer>
+        &copy;HC GARAGE 2023
+    </footer>
+</body>
+</html>

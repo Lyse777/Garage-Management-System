@@ -1,0 +1,109 @@
+﻿@page
+@model Garage_Management_System.Pages.GalleryModel
+@{
+    ViewData["Title"] = "Gallery";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HC GARAGE</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Garage_Management_System.styles.css" asp-append-version="true" />
+</head>
+<body>
+<div class="container mt-4">
+    <h2 class="text-center mb-5">Gallery</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="gallery-item">
+                    <img src="~/images/111.jpg" class="img-fluid" alt="Gallery Image" onclick="openFullscreen(this)">
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="gallery-item">
+                    <img src="~/images/112.jpg" class="img-fluid" alt="Gallery Image" onclick="openFullscreen(this)">
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="gallery-item">
+                    <img src="~/images/113.jpg" class="img-fluid" alt="Gallery Image" onclick="openFullscreen(this)">
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="gallery-item">
+                    <img src="~/images/114.jpg" class="img-fluid" alt="Gallery Image" onclick="openFullscreen(this)">
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="gallery-item">
+                    <img src="~/images/115.jpg" class="img-fluid" alt="Gallery Image" onclick="openFullscreen(this)">
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="gallery-item">
+                    <img src="~/images/116.jpg" class="img-fluid" alt="Gallery Image" onclick="openFullscreen(this)">
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="gallery-item">
+                    <img src="~/images/117.jpg" class="img-fluid" alt="Gallery Image" onclick="openFullscreen(this)">
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="gallery-item">
+                    <img src="~/images/118.jpg" class="img-fluid" alt="Gallery Image" onclick="openFullscreen(this)">
+            </div>
+        </div>
+            <div class="col-md-4 mb-4">
+                <div class="gallery-item">
+                    <img src="~/images/aa.jpg" class="img-fluid" alt="Gallery Image" onclick="openFullscreen(this)">
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="gallery-item">
+                    <img src="~/images/dd.jpg" class="img-fluid" alt="Gallery Image" onclick="openFullscreen(this)">
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="gallery-item">
+                    <img src="~/images/bb.jpg" class="img-fluid" alt="Gallery Image" onclick="openFullscreen(this)">
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="gallery-item">
+                    <img src="~/images/cc.jpg" class="img-fluid" alt="Gallery Image" onclick="openFullscreen(this)">
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="gallery-item">
+                    <img src="~/images/125.jpg" class="img-fluid" alt="Gallery Image" onclick="openFullscreen(this)">
+                </div>
+            </div>
+    </div>
+</div>
+
+
+    <!-- Fullscreen view container -->
+    <div id="fullscreenContainer" onclick="closeFullscreen()" style="display:none;">
+        <img id="fullscreenImage">
+    </div>
+
+    <script>
+        function openFullscreen(elem) {
+            var imgSrc = elem.getAttribute('src');
+            document.getElementById('fullscreenImage').src = imgSrc;
+            document.getElementById('fullscreenContainer').style.display = 'flex';
+        }
+
+        function closeFullscreen() {
+            document.getElementById('fullscreenContainer').style.display = 'none';
+        }
+    </script>
+
+
+
+</body>
+</html>

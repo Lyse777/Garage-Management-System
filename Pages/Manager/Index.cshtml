@@ -1,0 +1,129 @@
+﻿@page
+@model Garage_Management_System.Pages.Manager.IndexModel
+@{
+    ViewData["Title"] = "Management";
+}
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HC GARAGE</title>
+    <link rel="icon" href="~/images/logo.png" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+        .dashboard-button {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: darkslateblue;
+            color: white;
+            padding: 10px 20px;
+            border-bottom: 5px solid #007bff;
+            display: flex;
+            justify-content: center;
+            position: relative; /* Added for absolute positioning of logout link */
+        }
+
+            header::after { /* Used for centering the title with a flex item on the left */
+                content: '';
+                margin-right: -50px; /* Adjust this value based on your logout link width */
+            }
+
+            header a {
+                position: absolute;
+                right: 20px; /* Adjust this value as needed */
+                top: 50%;
+                transform: translateY(-50%);
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                header a:hover {
+                    color: gray; /* Text color on hover */
+                }
+
+        footer {
+            background-color: darkslateblue;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            border-top: 5px solid #007bff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .container {
+            padding: 20px;
+            min-height: 80vh; /* Adjust height to make sure footer stays at bottom */
+        }
+
+        h2 {
+            color: #2a3f5f;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <span>Manager Dashboard</span>
+        <a asp-page="/Login">Logout</a>
+    </header>
+
+    <div class="container">
+        <h2> Management</h2>
+    <div class="container mt-5">
+
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <a asp-page="/Manager/RequestServiceManage/ManageRequestService" class="btn btn-primary dashboard-button">Manage Request Service</a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a asp-page="/Manager/LaboursManage/Index" class="btn btn-secondary dashboard-button">Manage Labours</a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a asp-page="/Manager/ServicesManage/Index" class="btn btn-success dashboard-button">Manage Services</a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a asp-page="/Manager/InventoryManage/Index" class="btn btn-info dashboard-button">Manage Inventory</a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a asp-page="/Manager/SellingServiceManage/SellingService" class="btn btn-warning dashboard-button">Manage Selling Service</a>
+            </div>
+                <div class="col-md-4 mb-3">
+                    <a asp-page="/Manager/DailyReports/DayReports" class="btn btn-info dashboard-button">Day Report</a>
+                </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    </div>
+    <footer>
+        &copy;HC GARAGE 2023
+    </footer>
+
+</body>
+</html>

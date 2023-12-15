@@ -1,0 +1,388 @@
+﻿@page
+@model SellingServiceModel
+@{
+    ViewData["Title"] = "Selling Services";
+}
+
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HC GARAGE</title>
+    <link rel="icon" href="~/images/logo.png" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script>
+
+
+
+
+    <!-- Inline CSS for Styling -->
+    <style>
+
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: darkslateblue;
+            color: white;
+            padding: 10px 20px;
+            border-bottom: 5px solid #007bff;
+            display: flex;
+            justify-content: center;
+            position: relative; /* Added for absolute positioning of logout link */
+        }
+
+            header::after { /* Used for centering the title with a flex item on the left */
+                content: '';
+                margin-right: -50px; /* Adjust this value based on your logout link width */
+            }
+
+            header a {
+                position: absolute;
+                right: 20px; /* Adjust this value as needed */
+                top: 50%;
+                transform: translateY(-50%);
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                header a:hover {
+                    color: gray; /* Text color on hover */
+                }
+
+        footer {
+            background-color: darkslateblue;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            border-top: 5px solid #007bff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .container {
+            padding: 20px;
+            min-height: 80vh; /* Adjust height to make sure footer stays at bottom */
+        }
+
+        h2 {
+            color: #2a3f5f;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+
+        form {
+            background-color: #1e2a38;
+            color: white;
+            padding: 15px; /* Adjust the padding to make the form smaller */
+            border-radius: 10px;
+            margin: 0 auto;
+            width: 50%; /* Adjust the width to make the form smaller */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+        .checkbox label {
+            margin-right: 15px;
+        }
+
+
+        /* Back link style */
+        div a {
+            color: #2a3f5f;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+            div a:hover {
+                text-decoration: underline;
+                color: black;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <span>Manager Dashboard</span>
+        <a asp-page="/Login">Logout</a>
+    </header>
+
+    <div class="container">
+
+        <h2>Selling Service</h2>
+
+        @if (Model.errorMessage.Length > 0)
+        {
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>@Model.errorMessage</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+            </div>
+        }
+        @if (Model.successMessage.Length > 0)
+        {
+            <div class="row mb-3">
+                <div class="col-sm-9">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>@Model.successMessage</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @if (Model.validationErrors.Any())
+        {
+            <div class="alert alert-danger">
+                <p>There are errors with your submission:</p>
+                <ul>
+                    @foreach (var error in Model.validationErrors)
+                    {
+                        <li>@error</li>
+                    }
+                </ul>
+            </div>
+        }
+
+        <form method="post">
+     
+            <!-- Vehicle and Client Details -->
+            <div class="form-group">
+                <label asp-for="sellingServiceInfo.VehicleNumber">Vehicle Number</label>
+                <input asp-for="sellingServiceInfo.VehicleNumber" type="text" class="form-control" required>
+                <span asp-validation-for="sellingServiceInfo.VehicleNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="sellingServiceInfo.ClientName">Client Name</label>
+                <input asp-for="sellingServiceInfo.ClientName" type="text" class="form-control" required>
+                <span asp-validation-for="sellingServiceInfo.ClientName" class="text-danger"></span>
+            </div>
+            <!-- Include jQuery -->
+            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+            <!-- Your HTML code -->
+
+            <div class="form-group">
+                <label asp-for="sellingServiceInfo.Service">Service</label>
+                <select asp-for="sellingServiceInfo.Service" class="form-control" id="serviceDropdown">
+                    <option value="">Select Service</option>
+                    @foreach (var item in Model.ServicesLists)
+                    {
+                        <option value="@item.Service_Id" data-price="@item.Price">@item.Service_Name</option>
+                    }
+                </select>
+                <span asp-validation-for="sellingServiceInfo.Service" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="sellingServiceInfo.Tools">Select Tools</label>
+                <select asp-for="sellingServiceInfo.Tools" class="form-control" id="SelectedToolIds">
+                    <option value="">Select Tools</option>
+                    @foreach (var tool in Model.InventoryList)
+                    {
+                        <option value="@tool.ToolId" data-price="@tool.Price" data-quantity="@tool.Quantity">@tool.ToolName</option>
+                    }
+                </select>
+                <span asp-validation-for="sellingServiceInfo.Tools" class="text-danger"></span>
+            </div>
+
+            @* error message form *@
+            <div class="form-group">
+                <label for="Quantity">Quantity</label>
+                <input type="number" class="form-control" id="Quantity" name="sellingServiceInfo.Quantity" required>
+                <div id="quantityError" style="color: red;"></div>
+            </div>
+            <div class="form-group">
+                <label for="ToolPrice">Tool Price</label>
+                <input type="text" class="form-control" id="ToolPrice" name="sellingServiceInfo.ToolPrice" readonly>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="TotalAmount">Total Amount</label>
+                <input type="text" class="form-control" id="TotalAmount" name="sellingServiceInfo.TotalAmount" readonly>
+            </div>
+            <div class="form-group">
+                <label for="ServiceCharge">Service Charge</label>
+                <input type="text" class="form-control" id="ServiceCharge" name="sellingServiceInfo.ServiceCharge" readonly>
+            </div>
+            <div class="form-group">
+                <label for="TotalPayment">Total Payment</label>
+                <input type="text" class="form-control" id="TotalPayment" name="sellingServiceInfo.TotalPayment" readonly>
+            </div>
+
+            <!-- JavaScript code to handle dropdown change events -->
+            <script>
+                $(document).ready(function () {
+                    // Handle change event for the service dropdown
+                    $('#serviceDropdown').change(function () {
+                        var selectedService = $(this).find(':selected');
+                        var serviceCharge = selectedService.data('price');
+                        $('#ServiceCharge').val(serviceCharge);
+                    });
+
+                    // Handle change event for the tool dropdown
+                    $('#SelectedToolIds').change(function () {
+                        var selectedTool = $(this).find(':selected');
+                        var toolPrice = selectedTool.data('price');
+                        $('#ToolPrice').val(toolPrice);
+                        calculateTotal();
+                    });
+
+                    // Handle change event for the quantity input
+                    $('#Quantity').on('input', function () {
+                        calculateTotal();
+                    });
+
+                    // Function to calculate total amount and total payment
+                    function calculateTotal() {
+                        var quantity = $('#Quantity').val();
+                        var selectedTool = $('#SelectedToolIds').find(':selected');
+                        var toolPrice = selectedTool.data('price');
+                        var serviceCharge = $('#ServiceCharge').val();
+                        var availableQuantity = selectedTool.data('quantity');
+
+                        // Validate quantity
+                        if (quantity > availableQuantity) {
+                            $('#quantityError').text('Quantity is larger than available quantity!');
+                            $('#Quantity').val(availableQuantity);
+                            quantity = availableQuantity;
+                        } else {
+                            $('#quantityError').text('');
+                        }
+
+                        var totalAmount = quantity * toolPrice;
+                        var totalPayment = totalAmount + parseFloat(serviceCharge);
+
+                        $('#TotalAmount').val(totalAmount.toFixed(2));
+                        $('#TotalPayment').val(totalPayment.toFixed(2));
+                    }
+                });
+            </script>
+
+            <!-- Labour and Date Details -->
+            <div class="form-group">
+                <label asp-for="sellingServiceInfo.LabourName">Labour Name</label>
+                <select class="form-control" asp-for="sellingServiceInfo.LabourName" asp-items="@(new SelectList(Model.laboursList, "LabourId", "LabourName"))">
+                    <option value="">Select Labour</option>
+                </select>
+                <span asp-validation-for="sellingServiceInfo.LabourName" class="text-danger"></span>
+            </div>
+
+            <!-- Client Contact -->
+            <div class="form-group">
+                <label asp-for="sellingServiceInfo.ClientPhoneNumber">Client Phone Number</label>
+                <input asp-for="sellingServiceInfo.ClientPhoneNumber" type="tel" class="form-control">
+                <span asp-validation-for="sellingServiceInfo.ClientPhoneNumber" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- List of sells -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Vehicle Number</th>
+                <th>Client Name</th>
+                <th>Service Id</th>
+                <th>Tool Id</th>
+                <th>Quantity</th>
+                <th>Price Of Tool</th>
+                <th>Total Amount Of Tools</th>
+                <th>Service Charge</th>
+                <th>Total Payment</th>
+                <th>Labour Id</th>
+                <th>Client Contact</th>
+                <th>Date </th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.sellingServicesList)
+            {
+                <tr>
+                    <td>@item.VehicleNumber</td>
+                    <td>@item.ClientName</td>
+                    <td>@item.Service</td>
+                    <td>@item.Tools</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.ToolPrice</td>
+                    <td>@item.TotalAmount</td>
+                    <td>@item.ServiceCharge</td>
+                    <td>@item.TotalPayment</td>
+                    <td>@item.LabourName</td>
+                    <td>@item.ClientPhoneNumber</td>
+                    <td>@item.Date</td>
+
+
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    <br />
+    <br />
+
+    <div>
+        <a asp-page="/Manager/Index">Back to Management </a>
+    </div>
+    </div>
+    <br />
+    <br />
+    <footer>
+        &copy;HC GARAGE 2023
+    </footer>
+</body>
+</html>

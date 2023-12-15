@@ -1,0 +1,176 @@
+﻿@page
+@model Garage_Management_System.Pages.Manager.LaboursManage.IndexModel
+@{
+    ViewData["Title"] = "Manage Labour";
+}
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HC GARAGE</title>
+    <link rel="icon" href="~/images/logo.png" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        body {
+            background-color: #f4f7f6;
+            padding-top: 50px;
+        }
+
+        .labour-table {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        
+        .table {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+            .table th, .table td {
+                padding: 15px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .table th {
+                background-color: #f8f9fa;
+            }
+
+        .action-buttons a {
+            margin-right: 10px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: darkslateblue;
+            color: white;
+            padding: 10px 20px;
+            border-bottom: 5px solid #007bff;
+            display: flex;
+            justify-content: center;
+            position: relative; /* Added for absolute positioning of logout link */
+        }
+
+            header::after { /* Used for centering the title with a flex item on the left */
+                content: '';
+                margin-right: -50px; /* Adjust this value based on your logout link width */
+            }
+
+            header a {
+                position: absolute;
+                right: 20px; /* Adjust this value as needed */
+                top: 50%;
+                transform: translateY(-50%);
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+                header a:hover {
+                    color: gray; /* Text color on hover */
+                }
+
+        footer {
+            background-color: darkslateblue;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            border-top: 5px solid #007bff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .container {
+            padding: 20px;
+            min-height: 80vh; /* Adjust height to make sure footer stays at bottom */
+        }
+
+        h2 {
+            color: #2a3f5f;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Back link style */
+        div a {
+            color: #2a3f5f;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+            div a:hover {
+                text-decoration: underline;
+                color: black;
+            }
+
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <span>Manager Dashboard</span>
+        <a asp-page="/Login">Logout</a>
+    </header>
+
+    <div class="container">
+    <div class="labour-table">
+        <h2>Labour Management</h2>
+        <p>
+            <a asp-page="./Create" class="btn btn-primary">Create New Labour</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                     <th>Labour Id</th>
+                    <th>Labour Name</th>
+                    <th>Gender</th>
+                    <th>Phone Number</th>
+                    <th>Location</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var labour in Model.Labours)
+                {
+                    <tr>
+                         <td>@labour.LabourId</td>
+                        <td>@labour.LabourName</td>
+                        <td>@labour.Gender</td>
+                        <td>@labour.PhoneNumber</td>
+                        <td>@labour.Location</td>
+                        <td class="action-buttons">
+                            <a asp-page="./Update" asp-route-id="@labour.LabourId" class="btn btn-secondary">Update</a>
+                            <a asp-page="./Delete" asp-route-id="@labour.LabourId" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+            <div>
+                <a asp-page="/Manager/Index">Back to Management </a>
+            </div>
+    </div>
+    </div>
+    <br />
+    <br />
+    <footer>
+        &copy;HC GARAGE 2023
+    </footer>
+</body>
+</html>
